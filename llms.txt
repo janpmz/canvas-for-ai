@@ -1,6 +1,6 @@
 # Canvas for AI
 
-> Tools for editable designs and listening to text.
+> Tools for agents, to display things in a canvas for the user.
 
 - [Tool data](https://raw.githubusercontent.com/janpmz/canvas-for-ai/main/catalog.json): tasks, access, example_prompt, example_url.
 - [Agent guide](https://raw.githubusercontent.com/janpmz/canvas-for-ai/main/AGENTS.md).

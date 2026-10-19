@@ -13,3 +13,5 @@ Every tool needs:
 - `access`: method, HTTPS address, current guide, first tool name (or `null`), sign-in needs, and requirements.
 
 Keep text terse. Link to full instructions. State limits that affect use; do not guess features or costs.
+
+Tool layout: title, what it is for, example link, "Copy the prompt:", prompt. Keep tool-specific details under that tool.

@@ -1,7 +1,7 @@
 {
   "format_version": 1,
   "name": "Canvas for AI",
-  "description": "Tools where AI agents can show work that people can use, edit, or listen to.",
+  "description": "Tools for agents, to display things in a canvas for the user.",
   "repository_url": "https://github.com/janpmz/canvas-for-ai",
   "tools": [
     {
