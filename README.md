@@ -6,7 +6,7 @@ Tools for agents, to display things in a canvas for the user.
 
 Edit designs together with AI. No signup.
 
-[Example](https://uidesigneditor.com/) · [Guide](tools/ui-design-editor.md)
+[Example](https://uidesigneditor.com/)
 
 Copy the prompt:
 
@@ -15,11 +15,13 @@ Open https://uidesigneditor.com/ and read https://uidesigneditor.com/instruction
 Create an editable settings screen with a profile, email alerts, and a Save button.
 ```
 
+[Guide](tools/ui-design-editor.md)
+
 ## PDF TO MP3 Canvas
 
 Listen to text in the player. Sentence by sentence. No account. Gemini key required.
 
-[Example](https://pdftomp3.com/canvas/?example=1) · [Guide](tools/pdf-to-mp3.md)
+[Example](https://pdftomp3.com/canvas/?example=1)
 
 Copy the prompt:
 
@@ -27,5 +29,7 @@ Copy the prompt:
 Read https://pdftomp3.com/canvas/guide.html.
 Explain how memory works, send the text to PDF TO MP3 Canvas, and open the returned player link.
 ```
+
+[Guide](tools/pdf-to-mp3.md)
 
 [Agent guide](AGENTS.md) · [Tool data](catalog.json) · [Add a tool](CONTRIBUTING.md)
