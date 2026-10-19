@@ -17,7 +17,7 @@ Create an editable settings screen with a profile, email alerts, and a Save butt
 
 ## PDF TO MP3 Canvas
 
-For listening to text, sentence by sentence. No account needed. Playback needs your Gemini key.
+Listen to text in the player. Sentence by sentence. No account. Gemini key required.
 
 [Example](https://pdftomp3.com/canvas/?example=1) · [Guide](tools/pdf-to-mp3.md)
 
