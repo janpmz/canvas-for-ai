@@ -3,6 +3,5 @@
 > Tools for agents, to display things in a canvas for the user.
 
 - [Tool data](https://raw.githubusercontent.com/janpmz/canvas-for-ai/main/catalog.json): tasks, access, example_prompt, example_url.
-- [Agent guide](https://raw.githubusercontent.com/janpmz/canvas-for-ai/main/AGENTS.md).
-- [UI Design Editor](https://raw.githubusercontent.com/janpmz/canvas-for-ai/main/tools/ui-design-editor.md): editable designs. Try https://uidesigneditor.com/.
-- [PDF TO MP3 Canvas](https://raw.githubusercontent.com/janpmz/canvas-for-ai/main/tools/pdf-to-mp3.md): send text through its public API; no account or plugin. Try https://pdftomp3.com/canvas/?example=1. Guide: https://pdftomp3.com/canvas/guide.html.
+- [UI Design Editor](https://uidesigneditor.com/): editable designs.
+- [PDF TO MP3 Canvas](https://pdftomp3.com/canvas/): send text through its public API; no account or plugin. [Example](https://pdftomp3.com/canvas/?example=1).

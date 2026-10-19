@@ -1,4 +1,4 @@
-"""Check the tool list and its local guides without extra packages."""
+"""Check the tool list without extra packages."""
 
 import json
 import re
@@ -10,7 +10,7 @@ from urllib.parse import urlsplit
 ROOT = Path(__file__).resolve().parents[1]
 TOOL_FIELDS = {
     "id", "name", "url", "summary", "tags", "use_when", "not_for", "inputs",
-    "outputs", "access", "limits", "guide", "sources", "last_checked",
+    "outputs", "access", "limits", "sources", "last_checked",
     "example_prompt", "example_url",
 }
 ACCESS_FIELDS = {
@@ -72,7 +72,6 @@ def check():
     require(isinstance(catalog["tools"], list) and catalog["tools"], "No tools listed")
 
     seen = set()
-    guides = set()
     readme = (ROOT / "README.md").read_text(encoding="utf-8")
     llms = (ROOT / "llms.txt").read_text(encoding="utf-8")
     for tool in catalog["tools"]:
@@ -83,7 +82,7 @@ def check():
         require(re.fullmatch(r"[a-z0-9]+(?:-[a-z0-9]+)*", label), f"Invalid id: {label}")
         require(label not in seen, f"Repeated id: {label}")
         seen.add(label)
-        for field in ("name", "summary", "guide", "last_checked"):
+        for field in ("name", "summary", "last_checked"):
             text(tool[field], f"{label}.{field}")
         https_url(tool["url"], f"{label}.url")
         for field in ("tags", "use_when", "not_for", "inputs", "outputs", "limits", "sources"):
@@ -93,25 +92,17 @@ def check():
         checked = date.fromisoformat(tool["last_checked"])
         require(checked.isoformat() == tool["last_checked"], f"{label}: use YYYY-MM-DD")
 
-        guide = (ROOT / tool["guide"]).resolve()
-        require(guide.is_relative_to(ROOT / "tools") and guide.suffix == ".md",
-                f"{label}: guide must be a Markdown file in tools/")
-        require(guide.is_file(), f"{label}: guide not found")
-        require(guide not in guides, f"{label}: guide already used by another tool")
-        guides.add(guide)
-        guide_text = guide.read_text(encoding="utf-8")
-        text(guide_text, f"{label}.guide")
-        require(tool["guide"] in readme and tool["guide"] in llms,
-                f"{label}: add the guide link to README.md and llms.txt")
+        require(tool["name"] in readme and tool["url"] in llms,
+                f"{label}: add the tool to README.md and llms.txt")
 
         text(tool["example_prompt"], f"{label}.example_prompt")
         prompt_block = f"```text\n{tool['example_prompt']}\n```"
-        require(prompt_block in readme and prompt_block in guide_text,
-                f"{label}: add the copyable prompt to README.md and its guide")
+        require(prompt_block in readme,
+                f"{label}: add the copyable prompt to README.md")
         if tool["example_url"] is not None:
             https_url(tool["example_url"], f"{label}.example_url")
-            require(tool["example_url"] in readme and tool["example_url"] in guide_text,
-                    f"{label}: add the example link to README.md and its guide")
+            require(tool["example_url"] in readme and tool["example_url"] in llms,
+                    f"{label}: add the example link to README.md and llms.txt")
 
         require(isinstance(tool["access"], list) and tool["access"], f"{label}: no access method")
         for access in tool["access"]:
@@ -126,9 +117,7 @@ def check():
             text(access["auth"], f"{label}.access.auth")
             text_list(access["requirements"], f"{label}.access.requirements")
 
-    listed_guides = {path.resolve() for path in (ROOT / "tools").rglob("*.md")}
-    require(guides == listed_guides, "A guide in tools/ has no catalog entry")
-    print(f"Checked {len(seen)} tools and their guides.")
+    print(f"Checked {len(seen)} tools.")
 
 
 if __name__ == "__main__":

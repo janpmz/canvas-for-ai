@@ -58,7 +58,6 @@
         "Keep the full #space and &project values in links.",
         "Agent edits need browser site tools."
       ],
-      "guide": "tools/ui-design-editor.md",
       "sources": [
         "https://uidesigneditor.com/instructions.txt",
         "https://uidesigneditor.com/llms.txt",
@@ -121,7 +120,6 @@
         "Speech, Ask, and Explain use the user's Gemini key.",
         "Maximum 500,000 source plus spoken characters per canvas; requests must fit within 1 MiB."
       ],
-      "guide": "tools/pdf-to-mp3.md",
       "sources": [
         "https://github.com/janpmz/pdf-to-mp3-canvas",
         "https://pdftomp3.com/canvas/guide.html",
