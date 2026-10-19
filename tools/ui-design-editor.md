@@ -1,6 +1,6 @@
 # UI Design Editor
 
-For editable designs and screenshots. No signup.
+Edit designs together with AI. No signup.
 
 [Example](https://uidesigneditor.com/)
 

@@ -4,7 +4,7 @@ Tools for agents, to display things in a canvas for the user.
 
 ## UI Design Editor
 
-For editable designs and screenshots. No signup.
+Edit designs together with AI. No signup.
 
 [Example](https://uidesigneditor.com/) · [Guide](tools/ui-design-editor.md)
 
