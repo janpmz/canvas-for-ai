@@ -9,6 +9,6 @@
 
 Keep `catalog.json`, `README.md`, and `llms.txt` in sync. Use first-party sources. `last_checked` means a source check, not a full tool test.
 
-Run `python3 scripts/check_catalog.py`. Keep prose terse, plain, and active. Keep exact names where needed. Cut stock phrases and review all prose.
+Keep prose terse, plain, and active. Keep exact names where needed. Cut stock phrases and review all prose.
 
 Tool layout: title, what it is for, example link, "Copy the prompt:", prompt. Keep tool-specific details under that tool.

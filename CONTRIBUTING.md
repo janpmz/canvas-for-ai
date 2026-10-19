@@ -3,7 +3,6 @@
 1. Check the tool's own docs and agent access.
 2. Copy an entry in `catalog.json`; keep all fields and use a unique, stable `id`.
 3. Add the tool and prompt to `README.md`; link the tool in `llms.txt`.
-4. Run `python3 scripts/check_catalog.py` with Python 3.10+.
 
 Every tool needs:
 
