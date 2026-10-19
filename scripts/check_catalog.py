@@ -11,6 +11,7 @@ ROOT = Path(__file__).resolve().parents[1]
 TOOL_FIELDS = {
     "id", "name", "url", "summary", "tags", "use_when", "not_for", "inputs",
     "outputs", "access", "limits", "guide", "sources", "last_checked",
+    "example_prompt", "example_url",
 }
 ACCESS_FIELDS = {
     "method", "url", "instructions_url", "entry_tool", "auth", "requirements",
@@ -98,9 +99,19 @@ def check():
         require(guide.is_file(), f"{label}: guide not found")
         require(guide not in guides, f"{label}: guide already used by another tool")
         guides.add(guide)
-        text(guide.read_text(encoding="utf-8"), f"{label}.guide")
+        guide_text = guide.read_text(encoding="utf-8")
+        text(guide_text, f"{label}.guide")
         require(tool["guide"] in readme and tool["guide"] in llms,
                 f"{label}: add the guide link to README.md and llms.txt")
+
+        text(tool["example_prompt"], f"{label}.example_prompt")
+        prompt_block = f"```text\n{tool['example_prompt']}\n```"
+        require(prompt_block in readme and prompt_block in guide_text,
+                f"{label}: add the copyable prompt to README.md and its guide")
+        if tool["example_url"] is not None:
+            https_url(tool["example_url"], f"{label}.example_url")
+            require(tool["example_url"] in readme and tool["example_url"] in guide_text,
+                    f"{label}: add the example link to README.md and its guide")
 
         require(isinstance(tool["access"], list) and tool["access"], f"{label}: no access method")
         for access in tool["access"]:

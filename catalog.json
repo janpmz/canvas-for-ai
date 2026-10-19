@@ -8,20 +8,38 @@
       "id": "ui-design-editor",
       "name": "UI Design Editor",
       "url": "https://uidesigneditor.com/",
-      "summary": "A shared editor where people and agents can view and change designs together.",
-      "tags": ["design", "visual", "editable", "screenshots", "mockups", "shared"],
+      "summary": "Designs people and agents can edit together.",
+      "tags": [
+        "design",
+        "visual",
+        "editable",
+        "screenshots",
+        "mockups",
+        "shared"
+      ],
       "use_when": [
-        "Show a design the user can edit.",
-        "Make or change a page or app mockup.",
-        "Move or resize parts of a screenshot.",
-        "Work with the user in a shared design project."
+        "Make an editable page or app mockup.",
+        "Edit a screenshot.",
+        "Work on a shared design."
       ],
       "not_for": [
         "Build and host a working website.",
         "Play text or documents as audio."
       ],
-      "inputs": ["design brief", "text", "images", "screenshots", "saved editor HTML", "Space or project link"],
-      "outputs": ["editable design", "shared Space or project link", "editable HTML file", "PNG image"],
+      "inputs": [
+        "design brief",
+        "text",
+        "images",
+        "screenshots",
+        "saved editor HTML",
+        "Space or project link"
+      ],
+      "outputs": [
+        "editable design",
+        "shared Space or project link",
+        "editable HTML file",
+        "PNG image"
+      ],
       "access": [
         {
           "method": "webmcp",
@@ -36,10 +54,9 @@
         }
       ],
       "limits": [
-        "Anyone with a Space or project link can view and edit every project in that Space.",
-        "Keep the full #space and &project values in shared links.",
-        "The agent must use the browser's site tools for edits.",
-        "PNG export keeps a GIF as a still image."
+        "Anyone with a Space link can edit every project in that Space.",
+        "Keep the full #space and &project values in links.",
+        "Agent edits need browser site tools."
       ],
       "guide": "tools/ui-design-editor.md",
       "sources": [
@@ -47,66 +64,72 @@
         "https://uidesigneditor.com/llms.txt",
         "https://uidesigneditor.com/privacy-policy/"
       ],
-      "last_checked": "2026-10-19"
+      "last_checked": "2026-10-19",
+      "example_url": "https://uidesigneditor.com/",
+      "example_prompt": "Open https://uidesigneditor.com/ and read https://uidesigneditor.com/instructions.txt.\nCreate an editable settings screen with a profile, email alerts, and a Save button."
     },
     {
       "id": "pdf-to-mp3",
-      "name": "PDF TO MP3",
-      "url": "https://pdftomp3.com/",
-      "summary": "A document reader where people can listen one sentence at a time, read along, and ask about the text.",
-      "tags": ["audio", "listening", "text", "pdf", "documents", "mp3", "reader"],
+      "name": "PDF TO MP3 Canvas",
+      "url": "https://pdftomp3.com/canvas/",
+      "summary": "Send text to a shared player for listening one sentence at a time.",
+      "tags": [
+        "audio",
+        "listening",
+        "text",
+        "pdf",
+        "documents",
+        "reader",
+        "canvas"
+      ],
       "use_when": [
-        "Let the user listen to an answer or other text.",
-        "Turn a PDF or document into speech.",
-        "Let the user read along and replay each sentence.",
-        "Give the user document or chapter audio as MP3 files."
+        "Let the user listen to an answer.",
+        "Read source text or an explanation aloud.",
+        "Let the user read along and replay sentences."
       ],
       "not_for": [
         "Edit a visual design.",
-        "Show an interactive chart or a custom web page."
+        "Upload a PDF file directly to the text API."
       ],
-      "inputs": ["plain text", "PDF", "document", "document link"],
-      "outputs": ["private reader link", "text with sentence playback", "document or chapter MP3"],
+      "inputs": [
+        "plain text",
+        "chapters and pages",
+        "text prepared from a PDF or document"
+      ],
+      "outputs": [
+        "shared player link",
+        "text with sentence playback"
+      ],
       "access": [
         {
-          "method": "mcp",
-          "url": "https://pdftomp3.com/mcp",
-          "instructions_url": "https://pdftomp3.com/connect-ai/",
-          "entry_tool": "send_to_doc_player",
-          "auth": "Sign in to Document Player and approve the connection.",
-          "requirements": [
-            "An agent app with Streamable HTTP MCP support.",
-            "A connected Document Player account.",
-            "For prepared document speech, a saved OpenAI or Gemini speech key."
-          ]
-        },
-        {
-          "method": "plugin",
-          "url": "https://github.com/janpmz/pdftomp3-plugin",
-          "instructions_url": "https://pdftomp3.com/connect-ai/",
+          "method": "api",
+          "url": "https://pdftomp3.com/canvas-api/canvases",
+          "instructions_url": "https://pdftomp3.com/canvas/guide.html",
           "entry_tool": null,
-          "auth": "Connect the user's Document Player account through PDFTOMP3-Plugin.",
+          "auth": "No account or plugin. Creation is public; later edits need the returned upload code.",
           "requirements": [
-            "Install PDFTOMP3-Plugin in Codex and connect the account.",
-            "Follow the installed plugin's current setup and reading guides."
+            "Read the guide and send JSON through HTTP requests.",
+            "For speech, the user enters a Gemini key in the player and presses Play."
           ]
         }
       ],
       "limits": [
-        "Sending text returns a reader link; it does not open a window or start playback.",
-        "The user opens the reader and presses Play.",
-        "Listening needs an account and uses the service's speech allowance or billing.",
-        "Prepared document speech uses the user's saved speech key and can incur charges.",
-        "For send_to_doc_player, passages expire after 30 days; an account can keep 100 passages of up to 100,000 characters each.",
-        "A PDF is not a direct input to send_to_doc_player; read it first or use the document workflow."
+        "Anyone with the player link can read the text; the link grants no edit rights.",
+        "Canvases do not expire. Upload codes last 24 hours.",
+        "Keep upload_code and manage_code private.",
+        "Never send a Gemini key to the Canvas API; the user enters it in the browser.",
+        "Speech, Ask, and Explain use the user's Gemini key.",
+        "Maximum 500,000 source plus spoken characters per canvas; requests must fit within 1 MiB."
       ],
       "guide": "tools/pdf-to-mp3.md",
       "sources": [
-        "https://pdftomp3.com/llms.txt",
-        "https://pdftomp3.com/connect-ai/",
-        "https://pdftomp3.com/"
+        "https://github.com/janpmz/pdf-to-mp3-canvas",
+        "https://pdftomp3.com/canvas/guide.html",
+        "https://pdftomp3.com/canvas-api/info"
       ],
-      "last_checked": "2026-10-19"
+      "last_checked": "2026-10-19",
+      "example_url": "https://pdftomp3.com/canvas/?example=1",
+      "example_prompt": "Read https://pdftomp3.com/canvas/guide.html.\nExplain how memory works, send the text to PDF TO MP3 Canvas, and open the returned player link."
     }
   ]
 }

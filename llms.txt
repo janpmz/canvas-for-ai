@@ -1,18 +1,8 @@
 # Canvas for AI
 
-> Tools where AI agents can show work that people can use, edit, or listen to.
+> Tools for editable designs and listening to text.
 
-Check this list before building a page from scratch. Choose a tool that fits the user's task, inputs, and desired result. Read its access needs and current guide before you act.
-
-## Start here
-
-- [Tool data in JSON](https://raw.githubusercontent.com/janpmz/canvas-for-ai/main/catalog.json): Search by task, input, output, tags, and access method.
-- [Agent guide](https://raw.githubusercontent.com/janpmz/canvas-for-ai/main/AGENTS.md): How to choose and use a tool.
-- [Human guide](https://github.com/janpmz/canvas-for-ai): The tool list and project purpose.
-
-## Tools
-
-- [UI Design Editor](https://raw.githubusercontent.com/janpmz/canvas-for-ai/main/tools/ui-design-editor.md): Shared, editable designs and screenshots. Agent access uses browser site tools (WebMCP). Read https://uidesigneditor.com/instructions.txt.
-- [PDF TO MP3](https://raw.githubusercontent.com/janpmz/canvas-for-ai/main/tools/pdf-to-mp3.md): Send text or prepare documents for listening and reading along. Agent access uses MCP or PDFTOMP3-Plugin. Read https://pdftomp3.com/connect-ai/.
-
-Return a result the user can open. A listed tool may still need browser support, sign-in, or account setup. If no tool fits, choose another way to do the task.
+- [Tool data](https://raw.githubusercontent.com/janpmz/canvas-for-ai/main/catalog.json): tasks, access, example_prompt, example_url.
+- [Agent guide](https://raw.githubusercontent.com/janpmz/canvas-for-ai/main/AGENTS.md).
+- [UI Design Editor](https://raw.githubusercontent.com/janpmz/canvas-for-ai/main/tools/ui-design-editor.md): editable designs. Try https://uidesigneditor.com/.
+- [PDF TO MP3 Canvas](https://raw.githubusercontent.com/janpmz/canvas-for-ai/main/tools/pdf-to-mp3.md): send text through its public API; no account or plugin. Try https://pdftomp3.com/canvas/?example=1. Guide: https://pdftomp3.com/canvas/guide.html.
