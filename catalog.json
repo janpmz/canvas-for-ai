@@ -1,14 +1,14 @@
 {
   "format_version": 1,
   "name": "Canvas for AI",
-  "description": "Tools for agents, to display things in a canvas for the user.",
+  "description": "These tools let agents show work in a canvas for the user.",
   "repository_url": "https://github.com/janpmz/canvas-for-ai",
   "tools": [
     {
       "id": "ui-design-editor",
       "name": "UI Design Editor",
       "url": "https://uidesigneditor.com/",
-      "summary": "Designs people and agents can edit together.",
+      "summary": "People and agents can edit designs together.",
       "tags": [
         "design",
         "visual",
@@ -46,7 +46,7 @@
           "url": "https://uidesigneditor.com/",
           "instructions_url": "https://uidesigneditor.com/instructions.txt",
           "entry_tool": "read_design",
-          "auth": "No signup. A Space or project link grants access to the shared work.",
+          "auth": "You do not need an account. A Space or project link gives access to the shared work.",
           "requirements": [
             "A browser that exposes the page's WebMCP site tools to the agent.",
             "The full Space or project URL when opening existing work."
@@ -65,7 +65,7 @@
       ],
       "last_checked": "2026-10-19",
       "example_url": "https://uidesigneditor.com/",
-      "example_prompt": "Open https://uidesigneditor.com/ and read https://uidesigneditor.com/instructions.txt.\nCreate an editable settings screen with a profile, email alerts, and a Save button."
+      "example_prompt": "Open https://uidesigneditor.com/.\nRead https://uidesigneditor.com/instructions.txt.\nCreate an editable settings screen with a profile, email alerts, and a Save button."
     },
     {
       "id": "pdf-to-mp3",
@@ -105,20 +105,20 @@
           "url": "https://pdftomp3.com/canvas-api/canvases",
           "instructions_url": "https://pdftomp3.com/canvas/guide.html",
           "entry_tool": null,
-          "auth": "No account or plugin. Creation is public; later edits need the returned upload code.",
+          "auth": "You do not need an account or plugin. Anyone can create a canvas. Later edits need the returned upload code.",
           "requirements": [
-            "Read the guide and send JSON through HTTP requests.",
+            "Read the guide. Send JSON through HTTP requests.",
             "For speech, the user enters a Gemini key in the player and presses Play."
           ]
         }
       ],
       "limits": [
-        "Anyone with the player link can read the text; the link grants no edit rights.",
+        "Anyone with the player link can read the text. The link gives no edit rights.",
         "Canvases do not expire. Upload codes last 24 hours.",
         "Keep upload_code and manage_code private.",
-        "Never send a Gemini key to the Canvas API; the user enters it in the browser.",
+        "Never send a Gemini key to the Canvas API. The user enters it in the browser.",
         "Speech, Ask, and Explain use the user's Gemini key.",
-        "Maximum 500,000 source plus spoken characters per canvas; requests must fit within 1 MiB."
+        "Each canvas allows up to 500,000 source and spoken characters in total. Each request must fit within 1 MiB."
       ],
       "sources": [
         "https://github.com/janpmz/pdf-to-mp3-canvas",
@@ -127,7 +127,73 @@
       ],
       "last_checked": "2026-10-19",
       "example_url": "https://pdftomp3.com/canvas/?example=1",
-      "example_prompt": "Read https://pdftomp3.com/canvas/guide.html.\nExplain how memory works, send the text to PDF TO MP3 Canvas, and open the returned player link."
+      "example_prompt": "Read https://pdftomp3.com/canvas/guide.html.\nExplain how memory works.\nSend the text to PDF TO MP3 Canvas.\nOpen the player link that the tool returns."
+    },
+    {
+      "id": "in-app-editor",
+      "name": "In-App Editor",
+      "url": "https://github.com/janpmz/in-app-editor",
+      "summary": "Edit a copy of a website in the browser. Copy a prompt to apply the edits to its files.",
+      "tags": [
+        "website",
+        "visual",
+        "editable",
+        "layout",
+        "browser",
+        "canvas"
+      ],
+      "use_when": [
+        "Add an editor to an existing website project.",
+        "Move, resize, or add items on a copy of a page.",
+        "Give an agent a prompt that describes the user's visual edits."
+      ],
+      "not_for": [
+        "Apply edits to website files without an agent.",
+        "Build and host a website from a design brief."
+      ],
+      "inputs": [
+        "existing website page",
+        "visual edits",
+        "text and style changes",
+        "new page items"
+      ],
+      "outputs": [
+        "edited page copy",
+        "prompt for edits to website files",
+        "JSON changes"
+      ],
+      "access": [
+        {
+          "method": "javascript",
+          "url": "https://raw.githubusercontent.com/janpmz/in-app-editor/main/in-app-editor.js",
+          "instructions_url": "https://raw.githubusercontent.com/janpmz/in-app-editor/main/instructions.md",
+          "entry_tool": "InAppEditor.mount",
+          "auth": "The editor runs in the browser. It needs no separate account or server.",
+          "requirements": [
+            "Access to the website project files.",
+            "Copy in-app-editor.js and LICENSE into the website project. Include index.js if the app uses imports.",
+            "Load the editor once in the browser after the page is ready.",
+            "Show the EDIT button in local builds and private previews only."
+          ]
+        }
+      ],
+      "limits": [
+        "The editor changes a separate page copy. An agent must apply the change prompt to the website files.",
+        "Keep draft storage off. Each edit session must start from the current page.",
+        "The page copy does not run the page's scripts.",
+        "The editor cannot copy content inside frames or closed shadow roots.",
+        "Video, custom components, and complex transforms can differ in the copy.",
+        "The change prompt describes the visual result. Apply the edits through the website's layout rules. Check wide and narrow screens."
+      ],
+      "sources": [
+        "https://github.com/janpmz/in-app-editor",
+        "https://raw.githubusercontent.com/janpmz/in-app-editor/main/README.md",
+        "https://raw.githubusercontent.com/janpmz/in-app-editor/main/instructions.md",
+        "https://raw.githubusercontent.com/janpmz/in-app-editor/main/index.js"
+      ],
+      "last_checked": "2026-10-21",
+      "example_url": "https://github.com/janpmz/in-app-editor#how-to-add-this-right-now",
+      "example_prompt": "Read https://raw.githubusercontent.com/janpmz/in-app-editor/main/instructions.md.\nAdd In-App Editor from https://github.com/janpmz/in-app-editor to this website.\nShow the EDIT button in local builds and private previews only."
     }
   ]
 }
