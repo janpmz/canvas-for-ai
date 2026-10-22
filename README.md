@@ -6,7 +6,7 @@ These tools let agents show work in a canvas for the user.
 
 Edit designs with AI. You do not need an account.
 
-[Example](https://uidesigneditor.com/)
+[Example](https://uidesigneditor.com/) · [Source code](https://github.com/janpmz/uidesigneditor)
 
 Copy the prompt:
 
@@ -20,7 +20,7 @@ Create an editable settings screen with a profile, email alerts, and a Save butt
 
 Listen to text one sentence at a time. You do not need an account. Speech needs a Gemini key.
 
-[Example](https://pdftomp3.com/canvas/?example=1)
+[Example](https://pdftomp3.com/canvas/?example=1) · [Source code](https://github.com/janpmz/pdf-to-mp3-canvas)
 
 Copy the prompt:
 
@@ -35,7 +35,7 @@ Open the player link that the tool returns.
 
 Edit a copy of your website in the browser. Copy the change prompt to apply your edits to the website files.
 
-[Example video](https://github.com/janpmz/in-app-editor#how-to-add-this-right-now)
+[Example video](https://github.com/janpmz/in-app-editor#how-to-add-this-right-now) · [Source code](https://github.com/janpmz/in-app-editor)
 
 Copy the prompt:
 

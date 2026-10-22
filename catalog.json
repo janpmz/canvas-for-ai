@@ -8,6 +8,7 @@
       "id": "ui-design-editor",
       "name": "UI Design Editor",
       "url": "https://uidesigneditor.com/",
+      "repository_url": "https://github.com/janpmz/uidesigneditor",
       "summary": "People and agents can edit designs together.",
       "tags": [
         "design",
@@ -59,11 +60,12 @@
         "Agent edits need browser site tools."
       ],
       "sources": [
+        "https://github.com/janpmz/uidesigneditor",
         "https://uidesigneditor.com/instructions.txt",
         "https://uidesigneditor.com/llms.txt",
         "https://uidesigneditor.com/privacy-policy/"
       ],
-      "last_checked": "2026-10-19",
+      "last_checked": "2026-10-22",
       "example_url": "https://uidesigneditor.com/",
       "example_prompt": "Open https://uidesigneditor.com/.\nRead https://uidesigneditor.com/instructions.txt.\nCreate an editable settings screen with a profile, email alerts, and a Save button."
     },
@@ -71,6 +73,7 @@
       "id": "pdf-to-mp3",
       "name": "PDF TO MP3 Canvas",
       "url": "https://pdftomp3.com/canvas/",
+      "repository_url": "https://github.com/janpmz/pdf-to-mp3-canvas",
       "summary": "Send text to a shared player for listening one sentence at a time.",
       "tags": [
         "audio",
@@ -133,6 +136,7 @@
       "id": "in-app-editor",
       "name": "In-App Editor",
       "url": "https://github.com/janpmz/in-app-editor",
+      "repository_url": "https://github.com/janpmz/in-app-editor",
       "summary": "Edit a copy of a website in the browser. Copy a prompt to apply the edits to its files.",
       "tags": [
         "website",
@@ -191,7 +195,7 @@
         "https://raw.githubusercontent.com/janpmz/in-app-editor/main/instructions.md",
         "https://raw.githubusercontent.com/janpmz/in-app-editor/main/index.js"
       ],
-      "last_checked": "2026-10-21",
+      "last_checked": "2026-10-22",
       "example_url": "https://github.com/janpmz/in-app-editor#how-to-add-this-right-now",
       "example_prompt": "Read https://raw.githubusercontent.com/janpmz/in-app-editor/main/instructions.md.\nAdd In-App Editor from https://github.com/janpmz/in-app-editor to this website.\nShow the EDIT button in local builds and private previews only."
     }

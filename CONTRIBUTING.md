@@ -12,6 +12,7 @@ Every tool needs:
 - `example_prompt`: Give a short, complete prompt in a `text` block that the reader can copy from the README.
 - `example_url`: Give a direct example or usable editor link. Use `null` if none exists.
 - `sources`: Give links to the tool's own sources.
+- `repository_url`: Link to the open source repo. Use `null` if none exists. Link the repo in `README.md` and `llms.txt` too.
 - `last_checked`: Give the source-check date (`YYYY-MM-DD`).
 - `access`: Give the method, HTTPS address, current instructions, first tool name (or `null`), sign-in needs, and requirements.
 
